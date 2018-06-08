@@ -1,0 +1,69 @@
+/*
+ * Created Date: Thursday April 26th 2018 11:02:46 am
+ * Author: gumingxing
+ * -----
+ * Last Modified:Friday April 27th 2018 3:06:08 pm
+ * Modified By: gumingxing
+ * -----
+ * Copyright (c) 2018 MagCloud
+ */
+.add{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px
+}
+.auhority{
+  display: flex;
+  align-items: center;
+  line-height: 60px;
+  >span{
+    width: 60px;
+  }
+  >input{
+    width: 700px;
+  }
+}
+.button{
+  >button{
+    margin: 10px;
+  }
+}
+.operating-button-administrator {
+  >button{
+    color: #fff;
+    margin-right: 10px;
+    // &:nth-child(1){
+    //   background-color: #009688
+    // }
+    &:nth-child(1){
+      background-color: #4caf50
+    }
+    &:nth-child(2){
+      background-color: #e90d24
+    }
+  }
+  .ant-btn:hover{
+    color: #fff;
+    border: 0;
+  }
+}
+.authorized{
+  margin: 36px;
+  >button{
+    background-color: #009688;
+    color: #fff;
+  }
+  .ant-btn:hover {
+    color: #fff;
+    // border: 0;
+    background-color: #008896;
+  }
+}
+.submit-button{
+  >button{
+    &:nth-child(1){
+      background-color: #009688;
+      color: #fff;
+    }
+  }
+}

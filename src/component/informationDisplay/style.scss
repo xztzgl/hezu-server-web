@@ -1,0 +1,101 @@
+/*
+ * Created Date: Tuesday April 17th 2018 11:09:10 am
+ * Author: gumingxing
+ * -----
+ * Last Modified:Tuesday April 17th 2018 11:09:10 am
+ * Modified By: gumingxing
+ * -----
+ * Copyright (c) 2018 MagCloud
+ */
+
+.blocks {
+  margin-top: 60px;
+}
+
+.title-today {
+  display: flex;
+
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 46px;
+
+  color: #393939;
+
+  justify-content: space-between;
+  .url {
+    font-size: 12px;
+    font-weight: normal;
+
+    color: #8a8a8a;
+  }
+  .tips {
+    position: relative;
+
+    font-size: 14px;
+    > div {
+      &:nth-child(1) {
+        color: #ee713b;
+      }
+    }
+    .tips-box {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      z-index: 100;
+
+      display: none;
+      width: 164px;
+      height: 72px;
+      padding-top: 14px;
+
+      font-style: normal;
+
+      text-align: center;
+
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, .06);
+    }
+    > div {
+      line-height: 24px;
+    }
+    .grayA {
+      color: #8a8a8a;
+    }
+    .green {
+      color: #1db3a1;
+    }
+  }
+}
+
+.block-content {
+  display: flex;
+  height: 80px;
+  padding: 0 22px;
+  margin-bottom: 1px;
+
+  background-color: #ebebeb;
+
+  align-items: center;
+  justify-content: space-between;
+  > div {
+    &:nth-child(2) {
+      > div {
+        line-height: 24px;
+        &:nth-child(1) {
+          text-align: right;
+          span {
+            padding-right: 6px;
+
+            color: #1db3a1;
+          }
+        }
+        &:nth-child(2) {
+          text-align: right;
+
+          color: #8e8e8e;
+        }
+      }
+    }
+  }
+}

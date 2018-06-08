@@ -1,0 +1,53 @@
+@import "../../config.scss";
+.card {
+  & > div:first-child {
+    background: $theme;
+    & div {
+      color: $theme-content;
+    }
+  }
+  h1,
+  h3 {
+    margin: $theme-margin-base 0;
+  }
+  h1 {
+    padding-top: $theme-margin-base;
+  }
+}
+.yesterday {
+  position: relative;
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+
+    display: block;
+    width: 1px;
+    height: 80px;
+
+    content: "";
+    transform: translateY(-50%);
+
+    background: $theme-border-color;
+  }
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
+}
+.chart {
+  /* &,
+  .ant-table,
+  .ant-tabs-tab {
+    font-size: $font-size-base;
+  } */
+  .chart-mt {
+    margin: $theme-margin-base 0;
+  }
+  button:not(:first-child) {
+    margin-left: $theme-padding-base;
+  }
+}

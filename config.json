@@ -1,0 +1,53 @@
+{
+  "LoginHost": "http://localhost:9000",
+  "host": "http://localhost:9000",
+  "logo": "/asset/image/abc.png",
+  "app-title": "中国农业银行股份有限公司江苏省分行营业部",
+  "app-copyright": "© 2017 北京唐泉金服有限公司 | 京ICP备15052892",
+  "@icon-url": "'/asset/font/font_148784_r2qo40wrmaolayvi'",
+  "@primary-color":"#009688",
+  "@layout-header-height":"50px",
+  "@layout-body-background":"#f0f2f5",
+  "@login-header-padding": "240px",
+  "@padding-sm": "12px",
+  "@fixedTool-background": "#fff",
+  "@border-color-base": "rgb(217, 217, 217)",
+  "@border-color-split": "rgb(232, 232, 232)",
+  "@border-width-base": "1px",
+  "@border-style-base": "solid",
+  "@input-height-base": "32px",
+  "@border-radius-base": "4px",
+  "@font-size-base": "14px",
+  "taskStatus": {
+    "-2": {
+      "name": "全部",
+      "color": "#333"
+    },
+    "1": {
+      "name": "未出库",
+      "color": "#EE713B"
+    },
+    "2": {
+      "name": "在途",
+      "color": "#EE713B"
+    },
+    "3": {
+      "name": "已完成",
+      "color": "#1db3a1"
+    }
+  },
+  "zuozhiStatus": {
+    "0": {
+      "name": "全部",
+      "color": "#333"
+    },
+    "1": {
+      "name": "清分",
+      "color": "#EE713B"
+    },
+    "2": {
+      "name": "支出",
+      "color": "#EE713B"
+    }
+  }
+}

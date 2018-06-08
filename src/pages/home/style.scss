@@ -1,0 +1,56 @@
+/*
+ * Created Date: Tuesday April 10th 2018 11:30:21 am
+ * Author: chengpu
+ * -----
+ * Last Modified:Monday April 16th 2018 3:52:25 pm
+ * Modified By: gumingxing
+ * -----
+ * Copyright (c) 2018 MagCloud
+ */
+
+@import "../../config.scss";
+/* .home-page {
+  .home-panels {
+    display: flex;
+
+    justify-content: space-around;
+  }
+  .sys-home-title {
+    margin-top: 30px;
+    margin-bottom: 34px;
+
+    font-family: MicrosoftYaHei;
+    font-size: 24px;
+    line-height: 31px;
+
+    text-align: center;
+
+    color: $color-title;
+  }
+  .block-and-trans {
+    display: flex;
+    .ant-card.ant-card-bordered {
+      margin: 0 !important;
+
+      background-color: transparent !important;
+      .ant-card-head {
+        background-color: transparent;
+      }
+      form > div > div {
+        &:nth-last-of-type(1) > div {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+ */
+
+.body {
+  margin: 16px 22px;
+}
+
+.block-content,
+.task-info-box {
+  font-size: 14px;
+}

@@ -1,0 +1,63 @@
+@import "config.scss";
+ul {
+  padding: initial;
+
+  list-style: none;
+}
+header {
+  display: none !important;
+}
+
+header ~ div > div:first-child {
+  min-width: 200px;
+  overflow-y: auto;
+
+  background: $theme-menu-base;
+  & > div:first-child {
+    display: none !important;
+    & ~ div {
+      margin-top: 46px;
+    }
+  }
+  & ~ div {
+    position: static !important;
+
+    height: calc(100% - 46px);
+    padding: $theme-margin-base;
+    margin-top: $theme-header-height;
+
+    background: $theme-content !important;
+  }
+  ul {
+    background: $theme-menu-base !important;
+    & > li > div,
+    & > li > ul > li {
+      border-top: 1px solid #f6f6f6;
+      border-bottom: 1px solid #f9f9f9;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, .06);
+    }
+    & > li > div:first-child {
+      height: 60px !important;
+
+      line-height: 60px !important;
+    }
+  }
+}
+
+
+body > div:first-child {
+  & > div {
+    height: 100%;
+    & > div > div {
+      height: 100% !important;
+      & > div {
+        display: flex;
+        height: inherit;
+        flex-direction: column;
+      }
+    }
+  }
+}
+.app {
+  /* border: 1px solid red; */
+}

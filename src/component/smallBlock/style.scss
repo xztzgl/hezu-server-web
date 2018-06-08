@@ -1,0 +1,39 @@
+/*
+ * Created Date: Friday April 20th 2018 5:27:42 pm
+ * Author: gumingxing
+ * -----
+ * Last Modified:Friday April 20th 2018 5:27:42 pm
+ * Modified By: gumingxing
+ * -----
+ * Copyright (c) 2018 MagCloud
+ */
+ .block-info{
+   >div{
+     width: 200px;
+   }
+ }
+.key {
+  position: relative;
+  color: #8A8A8A;
+  display: block;
+  font-size: 12px;
+  height: 24px;
+  line-height: 24px;
+  padding-left: 12px;
+  &:after {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    content: "";
+    bottom: 7px;
+    left: 0;
+    background-color: #1DB3A1;
+  }
+}
+
+.value {
+  font-size: 14px;
+  height: 24px;
+  line-height: 24px;
+  margin-bottom: 15px
+}

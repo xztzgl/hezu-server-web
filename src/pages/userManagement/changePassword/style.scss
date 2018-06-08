@@ -1,0 +1,12 @@
+@import "../../../config.scss";
+
+.packset {
+  &,
+  .ant-table,
+  .ant-tabs-tab {
+    font-size: $font-size-base;
+  }
+  .clickable.warning {
+    margin-left: $theme-padding-base;
+  }
+}

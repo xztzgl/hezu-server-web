@@ -1,0 +1,42 @@
+{
+  "name": "hezu-server-web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "braft-editor": "^1.9.5",
+    "carrot": "git+http://192.168.0.22/front-end/carrot.git#packageV3.0",
+    "number-precision": "^1.2.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4"
+  },
+  "homepage": "https://web.wface.cn/",
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "eject": "react-scripts eject",
+    "test": "react-app-rewired test --env=jsdom"
+  },
+  "devDependencies": {
+    "create-react-app": "^1.5.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-class-property": "^1.1.0",
+    "node-sass": "^4.9.0",
+    "react-app-rewired": "^1.5.2",
+    "sass-loader": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=9.2.1",
+    "npm": "~5.6.0"
+  },
+  "description": "```\r my-app/\r   README.md\r   node_modules/\r   package.json\r   config.json\r   config-overrides.js\r   public/\r     index.html\r     favicon.ico\r   src/\r     App.css\r     App.js\r     App.test.js\r     index.css\r     index.js\r     logo.svg\r ```",
+  "main": "config-overrides.js",
+  "repository": {
+    "type": "git",
+    "url": "http://git.devops.iciyun.com/front-end/GzhCommercialBank-TangQuan.git "
+  },
+  "author": "chenpgu",
+  "license": "ISC"
+}

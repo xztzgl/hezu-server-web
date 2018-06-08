@@ -1,0 +1,49 @@
+$content-width: 1200px;
+// 颜色
+$theme: #009688; // 主题颜色
+$theme-header: #30363c; // 主题头部颜色
+$theme-header-title: #fff; // 主题头部颜色
+$theme-content: #fff; // 内容正文颜色
+$theme-important: #ee713b; // 主题醒目颜色
+$theme-iframe-bgcolor: #fff; // iframe背景色
+$theme-menu-base: #ededed; // 菜单静态基础背景色
+$theme-menu-active: #dfe4e3; // 菜单选中色
+$theme-link: #1db3a1; // 跳转连接
+$theme-color-base: #393939;
+$theme-modal-title: #f8f8f8;
+$theme-border-color: rgb(217, 217, 217);
+$theme-waring-color: red;
+$theme-shadow-color: rgb(238, 238, 238);
+// 尺寸
+$theme-header-height: 46px;
+$theme-padding-base: 10px;
+$theme-margin-base: 20px;
+// 字体大小
+$font-size-base: 14px;
+$font-size-small: $font-size-base - 2px;
+$font-size-title: $font-size-base+2px;
+$font-size-button: $font-size-base+4px;
+$font-size-totalNumber: 32px;
+// 加省略号
+@mixin overflow {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin button($height: 32px, $fontSize: 14px, $width: 100px) {
+  width: $width;
+
+  font-size: $fontSize;
+  line-height: $height;
+
+  cursor: pointer;
+
+  color: white;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background-color: $theme;
+  background-color: #009688;
+}

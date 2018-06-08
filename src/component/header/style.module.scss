@@ -1,0 +1,58 @@
+/*
+ * Created Date: Monday April 9th 2018 3:54:45 pm
+ * Author: chengpu
+ * -----
+ * Last Modified:Tuesday April 17th 2018 2:09:31 pm
+ * Modified By: chengpu
+ * -----
+ * Copyright (c) 2018 MagCloud
+ */
+
+@import "../../config.scss";
+.block-browser-header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1;
+
+  height: $theme-header-height;
+
+  background-color: $theme-header;
+
+  flex-shrink: 0;
+  & ~ div {
+    &,
+    & > div {
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+  .clickable {
+    cursor: pointer;
+    &:hover {
+      color: lighten($theme, 10%);
+    }
+  }
+  .header-content {
+    display: flex;
+    /* max-width: $content-width; */
+    margin: auto $theme-margin-base;
+
+    font-size: $font-size-small;
+    line-height: $theme-header-height;
+
+    color: $theme-header-title;
+
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      cursor: pointer;
+      .logoImg {
+        padding-right: $theme-padding-base;
+        margin-right: $theme-padding-base;
+
+        border-right: 1px solid #50565e;
+      }
+    }
+  }
+}
