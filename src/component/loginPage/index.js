@@ -144,7 +144,7 @@ export default class LoginPage extends React.Component {
       // vcode,
       // vid,
     };
-    Request.POST(`${store.get("LoginHost")}/${this.props.loginURL}`, {
+    Request.POST(`${store.get("host")}/${this.props.loginURL}`, {
       // headers: {
       //   Authorization: "Basic YnJvd3Nlcjo="
       // },

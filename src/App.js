@@ -19,7 +19,7 @@ import config from "projectRoot/config.json";
 import { Header } from "./component";
 import styles from "./App.module.scss";
 
-const loginHost = Storage.get("LoginHost"); // 访问地址
+const host = Storage.get("host"); // 访问地址
 const loginRes = Storage.get("loginRes");
 
 // 1首页      home
@@ -339,7 +339,7 @@ export default class App extends Component {
     });
   }
   componentDidMount () {
-    Request.GET(`${loginHost}/order-manage/get-all-orders/${loginRes.groupId}`).then((res) => {
+    Request.GET(`${host}/order-manage/get-all-orders/${loginRes.groupId}`).then((res) => {
       if (Array.isArray(res)) {
         this.setState({
           menus: changeData(res.filter(x => x.checked)),

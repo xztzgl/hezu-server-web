@@ -1,5 +1,4 @@
 {
-  "LoginHost": "http://localhost:9000",
   "host": "http://localhost:9000",
   "logo": "/asset/image/abc.png",
   "app-title": "中国农业银行股份有限公司江苏省分行营业部",

@@ -19,7 +19,7 @@ import "./style.scss";
 
 
 const host = Storage.get("host");
-const bankInfoLocal = Storage.get("bankInfoLocal");
+// const bankInfoLocal = Storage.get("bankInfoLocal");
 
 class View extends Component {
   constructor (props) {
@@ -35,7 +35,7 @@ class View extends Component {
   componentDidMount () {
     Request.GET(`${host}/overview`, {
       params: {
-        bank: bankInfoLocal.bankCode
+        // bank: bankInfoLocal.bankCode
       }
     }).then((res) => {
       console.log(res);
