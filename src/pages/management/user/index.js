@@ -14,34 +14,31 @@ const host = Storage.get("host");
 const columns = [
   {
     title: "用户头像",
-    key: "name",
+    key: "avatar",
   }, {
     title: "昵称",
-    key: "code",
+    key: "name",
   }, {
     title: "微信用户名",
-    key: "description1",
+    key: "weichat_name",
   }, {
     title: "性别",
-    key: "description2",
+    key: "gender",
   }, {
     title: "手机号",
-    key: "description3",
+    key: "username",
   }, {
     title: "出生年份",
-    key: "description4",
+    key: "birth_year",
   }, {
     title: "职业",
-    key: "description5",
+    key: "vocation",
   }, {
     title: "所在区域",
-    key: "description6",
+    key: "district",
   }, {
     title: "注册时间",
-    key: "description7",
-  }, {
-    title: "操作",
-    key: "description8",
+    key: "create_time",
   },
 ];
 
@@ -72,30 +69,30 @@ const columns = [
 //   placeholder: "请选择门店"
 // }];
 
-// const customURL = {
-//   getURL: {
-//     url: "role/list",
-//     method: "POST"
-//   },
-//   getDetailURL: {
-//     url: "role/detail",
-//     //method: "POST"
-//   },
-//   addURL: {
-//     url: "sys/role/save",
-//     //method: "POST"
-//   },
-//   updateURL: {
-//     url: "role/update",
-//     method: "POST"
-//   },
-//   deleteURL: {
-//     url: "role/delete",
-//     method: "get"
-//   },
-//   exportAllURL: "order/order/bespeak/exportBespeakExcelByCondition",
-//   exportPartURL: "order/order/bespeak/exportBespeakExcelByOrderId"
-// };
+const customURL = {
+  getURL: {
+    url: "server-web-management/user",
+    method: "GET"
+  },
+  // getDetailURL: {
+  //   url: "role/detail",
+  //   //method: "POST"
+  // },
+  // addURL: {
+  //   url: "sys/role/save",
+  //   //method: "POST"
+  // },
+  // updateURL: {
+  //   url: "role/update",
+  //   method: "POST"
+  // },
+  // deleteURL: {
+  //   url: "role/delete",
+  //   method: "get"
+  // },
+  // exportAllURL: "order/order/bespeak/exportBespeakExcelByCondition",
+  // exportPartURL: "order/order/bespeak/exportBespeakExcelByOrderId"
+};
 
 // const detailForm = [
 //   [
@@ -249,18 +246,21 @@ class View extends Component {
         <TableCRUD
           // type="normal"
           title={() => "用户列表"}
+          dataSourceKey="content"
           // actionGroup={actionGroup}
           // pagination={!1}
           columns={columns}
           // filterGroup={!1}
           // advancedSearchGroup={advancedSearchGroup}
+          // hasOperation={!1}
           hasAdd={!1}
-          // hasUpdate={!1}
+          hasView={!1}
+          hasUpdate={!1}
           hasDelete={!1}
           // hasExport={!!1}
           // hasPrint={!!1}
-          restURL="role/list"
-          // customURL={customURL}
+          // restURL="server-web-management/user"
+          customURL={customURL}
           // detailForm={detailForm}
         />
       </div>

@@ -26,59 +26,72 @@ const Authorization = Storage.get("Authorization");
 if (Authorization && Authorization !== "") {
   import("./App")
     .then((App) => {
-      const { bankId } = Storage.get("loginRes");
-      Request.POST(`${host}/bank-infos/sync`);
-      Request.POST(`${host}/branch-banks/sync`);
-      Request.POST(`${host}/valuta-infos/sync`);
+      // const { bankId } = Storage.get("loginRes");
+      // Request.POST(`${host}/bank-infos/sync`);
+      // Request.POST(`${host}/branch-banks/sync`);
+      // Request.POST(`${host}/valuta-infos/sync`);
 
-      const getInfo = Request.GET(`${host}/bank-infos/current`);
+      const getCodeMap = Request.GET(`${host}/common/code-map`);
 
-      const getBankInfos = Request.GET(`${host}/bank-infos`);
+      const getDistrict = Request.GET(`${host}/common/district`);
 
-      const getValutaInfos = Request.GET(`${host}/valuta-infos`);
+      // const getInfo = Request.GET(`${host}/bank-infos/current`);
 
-      const getCurrentBankBranch = Request.GET(`${host}/branch-banks/current`);
+      // const getBankInfos = Request.GET(`${host}/bank-infos`);
 
-      const getAllBankBranch = (bankCode) => Request.GET(`${host}/branch-banks/all`, {
-        params: {
-          bankCode,
-        }
-      });
+      // const getValutaInfos = Request.GET(`${host}/valuta-infos`);
 
-      const getBranchBanks = (bankCode) => Request.GET(`${host}/branch-banks`, {
-        params: {
-          bankCode,
-        }
-      });
+      // const getCurrentBankBranch = Request.GET(`${host}/branch-banks/current`);
+
+      // const getAllBankBranch = (bankCode) => Request.GET(`${host}/branch-banks/all`, {
+      //   params: {
+      //     bankCode,
+      //   }
+      // });
+
+      // const getBranchBanks = (bankCode) => Request.GET(`${host}/branch-banks`, {
+      //   params: {
+      //     bankCode,
+      //   }
+      // });
 
       window.Promise.all([
-        getBankInfos,
-        getValutaInfos,
-        getCurrentBankBranch,
-        getInfo,
+        getCodeMap,
+        getDistrict
+        // getBankInfos,
+        // getValutaInfos,
+        // getCurrentBankBranch,
+        // getInfo,
       ]).then((resolved) => {
-        const bankInfos = resolved[0];
-        const valutaInfos = resolved[1];
-        const currentBankBranch = resolved[2];
-        const bankInfoLocal = resolved[3];
+        const codeMap = resolved[0];
+        const district = resolved[1];
+        // const bankInfos = resolved[0];
+        // const valutaInfos = resolved[1];
+        // const currentBankBranch = resolved[2];
+        // const bankInfoLocal = resolved[3];
 
-        Storage.set("bankInfoLocal", bankInfoLocal);
-        Storage.set("bankInfos", bankInfos);
-        Storage.set("valutaInfos", valutaInfos);
-        Storage.set("X-Bank-Code", bankId);
-        Storage.set("currentBankBranch", currentBankBranch);
+        Storage.set("codeMap", codeMap);
+        Storage.set("district", district);
 
-        Storage.set("pKey", bankInfoLocal.pKey);
+        ReactDOM.render(<App.default />, document.getElementById("root"));
 
-        Storage.set("app-title", `${currentBankBranch.branchName}`);
+        // Storage.set("bankInfoLocal", bankInfoLocal);
+        // Storage.set("bankInfos", bankInfos);
+        // Storage.set("valutaInfos", valutaInfos);
+        // Storage.set("X-Bank-Code", bankId);
+        // Storage.set("currentBankBranch", currentBankBranch);
 
-        getAllBankBranch(bankId).then((allBankBranch) => {
-          Storage.set("allBankBranch", allBankBranch);
-          getBranchBanks(bankId).then((branchBanks) => {
-            Storage.set("branchBanks", branchBanks);
-            ReactDOM.render(<App.default />, document.getElementById("root"));
-          });
-        });
+        // Storage.set("pKey", bankInfoLocal.pKey);
+
+        // Storage.set("app-title", `${currentBankBranch.branchName}`);
+
+        // getAllBankBranch(bankId).then((allBankBranch) => {
+        //   Storage.set("allBankBranch", allBankBranch);
+        //   getBranchBanks(bankId).then((branchBanks) => {
+        //     Storage.set("branchBanks", branchBanks);
+        //     ReactDOM.render(<App.default />, document.getElementById("root"));
+        //   });
+        // });
       }, (rejected) => {
         Notification.error({
           message: "获取数据错误, 请检查服务端接口"

@@ -1,15 +1,15 @@
 {
-  "name": "hezu-server-web",
+  "name": "gzh-commercial-bank-tang-quan",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "braft-editor": "^1.9.5",
-    "carrot": "git+http://192.168.0.22/front-end/carrot.git#packageV3.0",
+    "babel-plugin-transform-remove-console": "^6.9.1",
+    "braft-editor": "^1.1.14",
+    "carrot": "git+http://192.168.0.22/front-end/carrot.git#package",
     "number-precision": "^1.2.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
   },
   "homepage": "https://web.wface.cn/",
   "scripts": {
@@ -19,13 +19,13 @@
     "test": "react-app-rewired test --env=jsdom"
   },
   "devDependencies": {
-    "create-react-app": "^1.5.2",
+    "create-react-app": "^1.5.1",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-class-property": "^1.1.0",
-    "node-sass": "^4.9.0",
-    "react-app-rewired": "^1.5.2",
-    "sass-loader": "^7.0.1"
+    "node-sass": "^4.7.2",
+    "react-app-rewired": "^1.4.0",
+    "sass-loader": "^6.0.6"
   },
   "engines": {
     "node": ">=9.2.1",
