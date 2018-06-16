@@ -47,3 +47,13 @@ $font-size-totalNumber: 32px;
   background-color: $theme;
   background-color: #009688;
 }
+
+.clickable {
+  cursor: pointer;
+  &:hover {
+    color: lighten($theme, 10%);
+  }
+}
+.action {
+  color: $theme;
+}
