@@ -1,5 +1,5 @@
 import React from "react";
-import { TableCRUD } from "carrot";
+import { TableCRUD, History } from "carrot";
 import { Breadcrumb } from "srcDir/component";
 import { getCodeMap, translate } from "srcDir/util/codeMap";
 import { getDistrict } from "srcDir/util/district";
@@ -56,14 +56,15 @@ const columns = [
         <span
           className={`${styles.clickable} ${styles.action}`}
           roles="button"
-          data-val="出库"
           onClick={() => {
             console.log(record);
-            // _this.props.history.push("/internal/inOutDetail/out", {
-            //   type: "out",
-            //   taskCode: record.taskCode,
-            //   has: "out"
-            // });
+            History.push("/management/notice/add", {
+              customerId: record.id,
+              customerUsername: record.username,
+              productType: "",
+              productId: "",
+              productTitle: ""
+            });
           }}
         >
         发信息
