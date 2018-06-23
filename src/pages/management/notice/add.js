@@ -1,11 +1,10 @@
 import React from "react";
 import { TableDetail, Select, Input, History } from "carrot";
+import { message } from "antd";
 import { Breadcrumb } from "srcDir/component";
 import { getCodeMap } from "srcDir/util/codeMap";
 
-
 import styles from "./style.module.scss";
-
 
 const sendMethod = getCodeMap(10012);
 
@@ -53,7 +52,7 @@ const View = () => {
     [
       {
         title: "联系人",
-        key: "customer",
+        key: "customer_id",
         type: "custom",
         placeholder: "请输入联系人",
         initialValue: {
@@ -142,8 +141,22 @@ const View = () => {
         title="发送信息"
         formItemGroup={detailForm}
         readonly={!1}
+        beforeSend={(values) => {
+          values.customer_id = values.customer_id.key * 1;
+          values.product_id = values.product_id.key * 1;
+          values.product_type = values.product_type.key * 1;
+          values.method *= 1;
+        }}
+        afterSend={(res) => {
+          if (res.success) {
+            message.success("信息已发送");
+            History.go(-1);
+          } else {
+            message.error(res.msg);
+          }
+        }}
         addURL={{
-          url: "sys/role/save",
+          url: "server-web-management/notice/add",
           // method: "POST"
         }}
       />

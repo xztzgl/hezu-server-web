@@ -10,28 +10,29 @@ import styles from "./style.module.scss";
 const host = Storage.get("host");
 
 class View extends Component {
-  // constructor (props) {
-  //   super(props);
-  //   this.state = {
-  //     clearingRecordDataSource: {}
-  //   };
-  // }
+  constructor (props) {
+    super(props);
+    this.state = {
+      customerCount: {}
+    };
+  }
   componentDidMount () {
     this.loadData();
   }
-  loadData = (obj = {}) => {
-    const { limit = 20, page = 1 } = obj;
-    Request.GET(`${host}/clean-records`, {
-      params: {
-        page,
-        limit,
-      }
-    }).then((res) => {
-      console.log(res);
+  loadData = () => {
+    Request.GET(`${host}/server-web-statistic/user`).then((res) => {
+      this.setState({
+        customerCount: res
+      });
     });
   };
 
   render () {
+    const {
+      yestodayTotalCustomer,
+      totalCustomer,
+      newTotalCustomer
+    } = this.state.customerCount;
     return (
       <div className={styles.user}>
         <Breadcrumb className={styles.breadcrumb} crumb={[{ title: "首页", link: "/" }, { title: "用户分析" }]} />
@@ -40,15 +41,15 @@ class View extends Component {
           content={[
             {
               title: "新注册用户",
-              value: 100
+              value: newTotalCustomer
             },
             {
               title: "昨日访问",
-              value: 1000
+              value: yestodayTotalCustomer
             },
             {
               title: "累计注册",
-              value: 1000000
+              value: totalCustomer
             },
           ]}
         />

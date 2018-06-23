@@ -1,26 +1,29 @@
 import React from "react";
-import { TableCRUD, History } from "carrot";
+import { TableCRUD, History, Storage, Request } from "carrot";
+import { message, Popconfirm } from "antd";
 import { Breadcrumb } from "srcDir/component";
 import { getCodeMap, translate } from "srcDir/util/codeMap";
 
 
 import styles from "./style.module.scss";
 
+const host = Storage.get("host");
+
 const publishStatus = getCodeMap(10011);
 
 /**
  * 表头信息格式
  */
-const columns = [
+const columns = _this => ([
   {
     title: "编号",
-    key: "id",
+    dataIndex: "id",
   }, {
     title: "描述",
-    key: "description",
+    dataIndex: "description",
   }, {
     title: "状态",
-    key: "status_id",
+    dataIndex: "publish_id",
     render: (text) => {
       return translate(publishStatus, text);
     }
@@ -31,7 +34,6 @@ const columns = [
         <span
           className={`${styles.clickable} ${styles.action}`}
           roles="button"
-          data-val="出库"
           onClick={() => {
             console.log(record);
             History.push("/management/notice/add", {
@@ -39,16 +41,65 @@ const columns = [
               customerUsername: record.username,
               productType: "2",
               productId: record.id,
-              productTitle: record.description
+              productTitle: record.title
             });
           }}
         >
         发信息
         </span>
+        {
+          (record.publish_id === 21101 || record.publish_id === 21102 || record.publish_id === 21103) && (
+            <span
+              className={`${styles.clickable} ${styles.action} ${styles.marginleft}`}
+              roles="button"
+              onClick={() => {
+                console.log(record);
+                Request.PUT(`${host}/server-web-management/person/confirm/${record.id}`).then((res) => {
+                  console.log(res);
+                  if (res.success) {
+                    message.success("确认成功");
+                    _this.loadData();
+                  } else {
+                    message.error("确认失败");
+                  }
+                });
+              }}
+            >
+            确认
+            </span>
+          )
+        }
+        {
+          (record.publish_id === 21101 || record.publish_id === 21102 || record.publish_id === 21103) && (
+            <Popconfirm
+              title="确认删除？"
+              okText="确认"
+              cancelText="取消"
+              onConfirm={() => {
+                Request.DELETE(`${host}/server-web-management/person/delete/${record.id}`).then((res) => {
+                  console.log(res);
+                  if (res.success) {
+                    message.success("删除成功");
+                    _this.loadData();
+                  } else {
+                    message.error("删除失败");
+                  }
+                });
+              }}
+            >
+              <span
+                className={`${styles.clickable} ${styles.action} ${styles.marginleft}`}
+                roles="button"
+              >
+              删除
+              </span>
+            </Popconfirm>
+          )
+        }
       </div>
     )
   },
-];
+]);
 
 const View = () => (
   <div className={styles.user}>

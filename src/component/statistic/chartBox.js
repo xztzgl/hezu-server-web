@@ -20,6 +20,47 @@ import styles from "./style.module.scss";
 
 const host = Storage.get("host");
 
+const statisticType = {
+  districtData (res) {
+    if (!Array.isArray(res)) {
+      return [];
+    }
+    const obj = {};
+    res.forEach((item) => {
+      if (item.house_district_id in obj) {
+        obj[item.house_district_id].count += 1;
+        obj[item.house_district_id].total += item.house_rental;
+      } else {
+        obj[item.house_district_id] = {};
+        obj[item.house_district_id].count = 1;
+        obj[item.house_district_id].total = item.house_rental;
+      }
+    });
+
+    const returnObj = {
+      dateList: [],
+      countList: [],
+      linkList: [],
+    };
+    Object.keys(obj).forEach((item) => {
+      returnObj.dateList.push(item);
+      returnObj.countList.push(obj[item].count);
+      returnObj.linkList.push(obj[item].total);
+    });
+    return returnObj;
+  },
+  // vocationData (res) {
+
+  // },
+  // rentalData (res) {
+
+  // },
+  // ageData (res) {
+
+  // },
+
+};
+
 class View extends Component {
   constructor (props) {
     super(props);
@@ -72,7 +113,8 @@ class View extends Component {
   };
   loadClearingData = (startDate, endDate) => {
     const {
-      url
+      url,
+      type
     } = this.props;
     const {
       rangeClearingPickerValue
@@ -81,39 +123,30 @@ class View extends Component {
       const { data } = this.props;
       this.setState({
         clearingDataSource: data,
-        clearingChartData: this.transform2chartData(data)
+        // clearingChartData: this.transform2chartData(data)
       });
     } else {
-      Request.GET(`${host}/${url}`, {
-        params: {
-          startDate: (startDate || rangeClearingPickerValue[0]).format("YYYYMMDD"),
-          endDate: (endDate || rangeClearingPickerValue[1]).format("YYYYMMDD"),
+      Request.POST(`${host}/${url}`, {
+        body: {
+          startTime: (startDate || rangeClearingPickerValue[0]).format("YYYY-MM-DD HH:mm:ss"),
+          endTime: (endDate || rangeClearingPickerValue[1]).format("YYYY-MM-DD HH:mm:ss"),
         }
       }).then((res) => {
         this.setState({
           clearingDataSource: res,
-          clearingChartData: this.transform2chartData(res)
+          clearingChartData: statisticType[type](res),
+          [type]: statisticType[type](res)
         });
       });
     }
   };
 
-  transform2chartData = (data) => {
-    const {
-      xAxisCategoriesName
-    } = this.props;
-    const obj = {
-      dateList: [],
-      countList: [],
-      linkList: [],
-    };
-    data.forEach((item) => {
-      obj.dateList.push(item[xAxisCategoriesName]);
-      obj.countList.push(item.cleanCount);
-      obj.linkList.push(item.relationCount);
-    });
-    return obj;
-  };
+  // transform2chartData = (data) => {
+  //   const {
+  //     xAxisCategoriesName
+  //   } = this.props;
+  //   return obj;
+  // };
 
   render () {
     const {
@@ -128,6 +161,7 @@ class View extends Component {
       rangeClearingPickerValue,
       clearingChartData
     } = this.state;
+    console.log(this.state);
     return (
       <Card
         className={`${styles.card} ${styles.chart}`}
@@ -192,10 +226,10 @@ class View extends Component {
             yAxisTitle="清分量 (捆)"
             xAxisCategories={clearingChartData.dateList}
             series={[{
-              name: "清分量",
+              name: "数量",
               data: clearingChartData.countList
             }, {
-              name: "关联量",
+              name: "金额",
               data: clearingChartData.linkList
             }]}
           />
