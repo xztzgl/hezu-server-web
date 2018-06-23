@@ -73,9 +73,15 @@ const View = () => {
         title: "发送方式",
         key: "method",
         type: "custom",
+        initialValue: {
+          key: "21201",
+          label: "站内信"
+        },
         rules: [{ required: true, message: "请选择发送方式!" }],
         content: (
           <Select
+            disabled={!!1}
+            labelInValue={!!1}
             options={sendMethod}
             onChange={(value) => console.log(value)}
           />
@@ -105,7 +111,7 @@ const View = () => {
         type: "custom",
         initialValue: {
           key: productId,
-          label: productTitle.length > 7 ? productTitle.substr(0, 6) + "..." : productTitle,
+          label: productTitle && (productTitle.length > 7 ? productTitle.substr(0, 6) + "..." : productTitle),
         },
         // rules: [{ required: true, message: "关联ID!" }],
         content: (
@@ -145,12 +151,15 @@ const View = () => {
           values.customer_id = values.customer_id.key * 1;
           values.product_id = values.product_id.key * 1;
           values.product_type = values.product_type.key * 1;
-          values.method *= 1;
+          values.method = values.method.key * 1;
+          // values.method *= 1;
         }}
         afterSend={(res) => {
           if (res.success) {
             message.success("信息已发送");
-            History.go(-1);
+            setTimeout(() => {
+              History.go(-1);
+            }, 1000);
           } else {
             message.error(res.msg);
           }
