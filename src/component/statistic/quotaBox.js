@@ -16,7 +16,7 @@ export default (props) => {
       <Row type="flex" justify="center" style={{ textAlign: "center" }}>
         {
           content.map((item, index) => (
-            <Col span={Math.floor(24 / count)} className={index > 0 && index < count - 1 ? styles.yesterday : ""}>
+            <Col key={Math.random()} span={Math.floor(24 / count)} className={index > 0 && index < count - 1 ? styles.yesterday : ""}>
               <Col>
                 <h3>{item.title}</h3>
               </Col>
