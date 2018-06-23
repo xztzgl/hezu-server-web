@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Avatar, Input, Button, Icon, Checkbox, Storage as store, Notification, Request } from "carrot";
+import { Input, Button, Icon, Checkbox, Storage as store, Notification, Request } from "carrot";
 
-import logoImg from "../../../public/asset/image/login_logo.png";
+// import logoImg from "../../../public/asset/image/login_logo.png";
 
 import "./style.scss";
 
@@ -55,7 +55,7 @@ export default class LoginPage extends React.Component {
         justifyContent: "center"
       },
       title: store.get("app-title"),
-      logo: store.get("logo"),
+      // logo: store.get("logo"),
       username: store.get("username"),
       remembered: store.get("remembered"),
       // vid: null,
@@ -168,7 +168,7 @@ export default class LoginPage extends React.Component {
     const _this = this;
     const {
       title,
-      logo,
+      // logo,
       headerStyles
     } = this.state;
     return (
@@ -176,6 +176,7 @@ export default class LoginPage extends React.Component {
         className="login"
       >
         <header style={headerStyles}>
+          {/*
           <Avatar
             style={{
               width: "22px",
@@ -186,6 +187,7 @@ export default class LoginPage extends React.Component {
             shape="square"
             src={logo}
           />
+          */}
           <h1 style={{
             margin: "0 0 0 10px",
             fontSize: "16px",
@@ -275,10 +277,12 @@ export default class LoginPage extends React.Component {
             onClick={this.loginHandle}
           />
         </div>
+        {/*
         <img
           src={logoImg}
           alt="logo"
         />
+        */}
       </article>
     );
   }

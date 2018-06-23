@@ -1,8 +1,8 @@
 {
   "host": "http://localhost:9000",
   "logo": "/asset/image/abc.png",
-  "app-title": "中国农业银行股份有限公司江苏省分行营业部",
-  "app-copyright": "© 2017 北京唐泉金服有限公司 | 京ICP备15052892",
+  "app-title": "好合租·运营管理PC端",
+  "app-copyright": "© 2018 向左投资(北京)有限公司 | 京ICP备15052892",
   "@icon-url": "'/asset/font/font_148784_r2qo40wrmaolayvi'",
   "@primary-color":"#009688",
   "@layout-header-height":"50px",

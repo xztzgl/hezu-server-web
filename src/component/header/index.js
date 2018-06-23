@@ -9,22 +9,24 @@
  */
 import React from "react";
 import PropTypes from "prop-types";
-import { History, Icon, Avatar, Storage } from "carrot";
-// import { SearchInput } from "../index";
-import logoImg from "../../../public/asset/image/logo.png";
+import { History, Icon, Storage } from "carrot";
+// import logoImg from "../../../public/asset/image/logo.png";
 import styles from "./style.module.scss";
 
 const Comp = () => {
-  const logoPNG = Storage.get("logo");
+  // const logoPNG = Storage.get("logo");
   const appTitle = Storage.get("app-title");
   const loginRes = Storage.get("loginRes");
-  const { bankId } = loginRes;
 
   return (
     <div className={styles["block-browser-header"]} >
       <div className={styles["header-content"]} >
         <div className={styles.logo} onClick={() => { History.push("/"); }} >
+          {/*
           <img className={styles.logoImg} src={logoImg} alt="logo" />
+          */}
+          {
+            /*
           <Avatar
             style={{
               width: "22px",
@@ -33,14 +35,16 @@ const Comp = () => {
             }}
             src={logoPNG}
           />
+            */
+          }
           <span
             style={{
               verticalAlign: "middle",
-              marginLeft: "10px"
+              fontSize: "18px"
             }}
           >
             {
-              `${appTitle}（${bankId}）`
+              `${appTitle}`
             }
           </span>
         </div>
