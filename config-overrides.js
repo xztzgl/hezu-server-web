@@ -38,5 +38,7 @@ module.exports = function override (config, env) {
       pages: path.resolve(__dirname, "./src/pages"),
     }
   };
+  // console.log(config);
+  // config.output.publicPath = "/management/";
   return config;
 };
